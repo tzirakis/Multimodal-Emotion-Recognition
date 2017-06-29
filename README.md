@@ -13,6 +13,7 @@ The below requirements are needed to generate the wav files in the `data_generat
   * MoviePy >= 0.2.2.11
  
 ## Content
+This repository contains the files:
   * model.py: contains the audio and video networks.
   * emotion_train.py: is in charge of training.
   * emotion_eval.py: is in charge of evaluating.
@@ -20,3 +21,5 @@ The below requirements are needed to generate the wav files in the `data_generat
   * data_generator.py: creates the tfrecords from '.wav' files
   * metrics.py: contains the concordance metric used for evaluation.
   * losses.py: contains the loss function of the training.
+
+The folder models contains pretrained models that were used in the paper.
