@@ -1,27 +1,13 @@
 import menpo
 import tensorflow as tf
 import numpy as np
-import menpo.io as mio
 import os
-import math
 
 from io import BytesIO
 from pathlib import Path
 from moviepy.editor import VideoFileClip
 from menpo.visualize import progress_bar_str, print_progress
-from menpo.image import Image
-from menpo.shape import PointCloud
-from sklearn import preprocessing
 from moviepy.audio.AudioClip import AudioArrayClip
-from sklearn.externals import joblib
-
-# Used to find landmarks
-from menpodetect.dlib import load_dlib_frontal_face_detector
-from menpodetect.ffld2 import load_ffld2_frontal_face_detector
-from menpodetect.dlib.conversion import pointgraph_to_rect
-from dlib import shape_predictor
-from menpo.shape import PointCloud
-from os.path import isdir, join
 
 root_dir = Path('/vol/atlas/homes/gt108/db/RECOLA_CNN')
 
