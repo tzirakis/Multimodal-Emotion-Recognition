@@ -17,20 +17,19 @@ tf.app.flags.DEFINE_float('num_epochs_per_decay', 5.0, 'Epochs after which learn
 tf.app.flags.DEFINE_float('learning_rate_decay_factor', 0.97, 'Learning rate decay factor.')
 tf.app.flags.DEFINE_integer('batch_size', 2, '''The batch size to use.''')
 tf.app.flags.DEFINE_integer('num_preprocess_threads', 4, 'How many preprocess threads to use.')
-tf.app.flags.DEFINE_string('train_dir', 'ckpt/del',
+tf.app.flags.DEFINE_string('train_dir', 'ckpt/train',
                            '''Directory where to write event logs '''
                            '''and checkpoint.''')
-tf.app.flags.DEFINE_string('pretrained_model_checkpoint_path',
-			   '/vol/atlas/homes/pt511/saved_models/multimodal_emotion_recognition/both_h=0.0001_b=2_s=150hu=256_newest_models_27-03-2017/model.ckpt-9789',
-                           '''If specified, restore this pretrained model '''
+tf.app.flags.DEFINE_string('pretrained_model_checkpoint_path', '',
+			   '''If specified, restore this pretrained model '''
                            '''before beginning any training.''')
 tf.app.flags.DEFINE_integer('max_steps', 1, 'Number of batches to run.')
 tf.app.flags.DEFINE_integer('hidden_units', 256, 'Number of batches to run.')
-tf.app.flags.DEFINE_integer('seq_length', 10, 'Number of batches to run.')
+tf.app.flags.DEFINE_integer('seq_length', 150, 'Number of batches to run.')
 tf.app.flags.DEFINE_string('train_device', '/gpu:0', 'Device to train with.')
 tf.app.flags.DEFINE_string('model', 'both',
                            '''Which model is going to be used: audio, video, or both ''')
-tf.app.flags.DEFINE_string('dataset_dir', '/vol/atlas/homes/pt511/db/RECOLA/tf_records',
+tf.app.flags.DEFINE_string('dataset_dir', 'path_to_tfrecords',
                            'The tfrecords directory.')
 
 def train(data_folder):
