@@ -1,4 +1,4 @@
-# End-to-End Multimodal Emotion Recognition
+# End-to-End Multimodal Emotion Recognition using Deep Neural Networks
 
 This package provides training and evaluation code for the end-to-end multimodal emotion recognition paper. If you use this codebase in your experiments please cite:
 
