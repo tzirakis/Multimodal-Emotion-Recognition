@@ -37,11 +37,6 @@ def recurrent_model(net, hidden_units=256, number_of_outputs=2):
 
 
 def video_model(video_frames=None, audio_frames=None):
-    """Complete me...
-
-    Args:
-    Returns:
-    """
 
     with tf.variable_scope("video_model"):
         batch_size, seq_length, height, width, channels = video_frames.get_shape().as_list()
@@ -55,11 +50,6 @@ def video_model(video_frames=None, audio_frames=None):
     return features
 
 def audio_model(video_frames=None, audio_frames=None, conv_filters=40):
-    """Complete me...
-
-    Args:
-    Returns:
-    """
 
     with tf.variable_scope("audio_model"):
       print(audio_frames.get_shape().as_list())
@@ -99,11 +89,7 @@ def audio_model(video_frames=None, audio_frames=None, conv_filters=40):
 
 
 def combined_model(video_frames, audio_frames):
-    """Complete me...
 
-    Args:
-    Returns:
-    """
     audio_features = audio_model([], audio_frames)
     visual_features = video_model(video_frames,[])
 
@@ -111,11 +97,7 @@ def combined_model(video_frames, audio_frames):
 
 
 def get_model(name):
-    """Complete me...
 
-    Args:
-    Returns:
-    """
     name_to_fun = {'audio': audio_model, 'video': video_model, 'both': combined_model}
 
     if name in name_to_fun:
