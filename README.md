@@ -21,5 +21,6 @@ This repository contains the files:
   * data_generator.py: creates the tfrecords from '.wav' files
   * metrics.py: contains the concordance metric used for evaluation.
   * losses.py: contains the loss function of the training.
-
+  * inception_processing.py: provides methods to regularize images. 
+  
 The folder models contains pretrained models that were used in the paper.
