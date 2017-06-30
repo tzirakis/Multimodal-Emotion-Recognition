@@ -8,11 +8,7 @@ slim = tf.contrib.slim
 
 
 def concordance_cc(predictions, labels):
-    """Complete me...
 
-    Args:
-    Returns:
-    """
     pred_mean, pred_var = tf.nn.moments(predictions, (0,))
     gt_mean, gt_var = tf.nn.moments(labels, (0,))
 
@@ -22,11 +18,7 @@ def concordance_cc(predictions, labels):
 
 
 def concordance_cc2(r1, r2):
-    """Complete me...
 
-    Args:
-    Returns:
-    """
     mean_cent_prod = ((r1 - r1.mean()) * (r2 - r2.mean())).mean()
 
     return (2 * mean_cent_prod) / (r1.var() + r2.var() + (r1.mean() - r2.mean()) ** 2)
