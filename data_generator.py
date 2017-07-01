@@ -9,7 +9,7 @@ from moviepy.editor import VideoFileClip
 from menpo.visualize import progress_bar_str, print_progress
 from moviepy.audio.AudioClip import AudioArrayClip
 
-root_dir = Path('/vol/atlas/homes/gt108/db/RECOLA_CNN')
+root_dir = Path('path_of_RECOLA')
 
 portion_to_id = dict(
     train = [25, 15, 16 ,17 ,18 ,21 ,23 ,37 ,39 ,41 ,46 ,50 ,51 ,55 ,56, 60], # 25
@@ -82,5 +82,5 @@ def main(directory):
       serialize_sample(writer, subj_id)
 
 if __name__ == "__main__":
-  main(Path('/vol/atlas/homes/pt511/db/RECOLA_audio_only'))
+  main(Path('path_to_save_tfrecords'))
 
