@@ -23,4 +23,3 @@ This repository contains the files:
   * losses.py: contains the loss function of the training.
   * inception_processing.py: provides methods to regularize images. 
   
-The folder models contains pretrained models that were used in the paper.
