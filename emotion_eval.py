@@ -13,6 +13,7 @@ from menpo.visualize import print_progress
 from pathlib import Path
 from tensorflow.python.platform import tf_logging as logging
 
+
 slim = tf.contrib.slim
 
 FLAGS = tf.app.flags.FLAGS
