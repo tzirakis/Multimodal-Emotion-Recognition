@@ -9,6 +9,7 @@ from moviepy.editor import VideoFileClip
 from menpo.visualize import progress_bar_str, print_progress
 from moviepy.audio.AudioClip import AudioArrayClip
 
+
 root_dir = Path('path_of_RECOLA')
 
 portion_to_id = dict(
@@ -16,8 +17,6 @@ portion_to_id = dict(
     valid = [14, 19, 24, 26, 28, 30, 34 ,40, 42, 43, 44, 45, 52, 64, 65],
     test  = [54, 53, 13, 20, 22, 32, 38, 47, 48, 49, 57, 58, 59, 62, 63] # 54, 53
 )
-
-# scaler = joblib.load('training_standartization.pkl')
 
 def get_samples(subject_id):
     arousal_label_path = root_dir / 'Ratings_affective_behaviour_CCC_centred/arousal/{}.csv'.format(subject_id)
@@ -56,7 +55,6 @@ def _bytes_feauture(value):
 
 def serialize_sample(writer, subject_id):
     subject_name = 'P{}'.format(subject_id)
-#    os.system('mkdir {}{}'.format(p_out, subject_name))
 
     for i, (audio, label) in enumerate(zip(*get_samples(subject_name))):
 
