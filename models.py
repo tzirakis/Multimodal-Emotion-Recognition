@@ -6,6 +6,7 @@ import tensorflow as tf
 
 from tensorflow.contrib.slim.nets import resnet_v1
 
+
 slim = tf.contrib.slim
 
 def recurrent_model(net, hidden_units=256, number_of_outputs=2):
