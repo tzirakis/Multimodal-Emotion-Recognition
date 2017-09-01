@@ -28,7 +28,12 @@ tf.app.flags.DEFINE_string('eval_interval_secs', 300, 'The number of examples in
 tf.app.flags.DEFINE_string('portion', 'valid', 'The number of examples in the test set')
 
 def evaluate(data_folder):
-
+  """Evaluates the model (audio/video/both).
+  
+  Args:
+     data_folder: The folder that contains the data to evaluate the model.
+  """
+  
   g = tf.Graph()
   with g.as_default():
 
