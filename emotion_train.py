@@ -17,20 +17,22 @@ FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_float('initial_learning_rate', 0.0001, 'Initial learning rate.')
 tf.app.flags.DEFINE_float('num_epochs_per_decay', 5.0, 'Epochs after which learning rate decays.')
 tf.app.flags.DEFINE_float('learning_rate_decay_factor', 0.97, 'Learning rate decay factor.')
-tf.app.flags.DEFINE_integer('batch_size', 2, '''The batch size to use.''')
+tf.app.flags.DEFINE_integer('batch_size', 2, 'The batch size to use.')
 tf.app.flags.DEFINE_integer('num_preprocess_threads', 4, 'How many preprocess threads to use.')
 tf.app.flags.DEFINE_string('train_dir', 'ckpt/train',
-                           '''Directory where to write event logs '''
-                           '''and checkpoint.''')
+                           'Directory where to write event logs '
+                           'and checkpoint.')
 tf.app.flags.DEFINE_string('pretrained_model_checkpoint_path', '',
-			   '''If specified, restore this pretrained model '''
-                           '''before beginning any training.''')
-tf.app.flags.DEFINE_integer('max_steps', 1, 'Number of batches to run.')
-tf.app.flags.DEFINE_integer('hidden_units', 256, 'Number of batches to run.')
-tf.app.flags.DEFINE_integer('seq_length', 150, 'Number of batches to run.')
+			   'If specified, restore this pretrained model '
+                           'before beginning any training.')
+tf.app.flags.DEFINE_integer('hidden_units', 256, 
+			    'The number of hidden units in the recurrent model')
+tf.app.flags.DEFINE_integer('seq_length', 2, 
+			    'The number of consecutive examples to be used' 
+			    'in the recurrent model')
 tf.app.flags.DEFINE_string('train_device', '/gpu:0', 'Device to train with.')
 tf.app.flags.DEFINE_string('model', 'both',
-                           '''Which model is going to be used: audio, video, or both ''')
+                           'Which model is going to be used: audio, video, or both ')
 tf.app.flags.DEFINE_string('dataset_dir', 'path_to_tfrecords',
                            'The tfrecords directory.')
 
