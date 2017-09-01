@@ -8,7 +8,7 @@ This package provides training and evaluation code for the end-to-end multimodal
 The below requirements are needed to generate the tfrecords in the `data_generator.py` file. If you need to run the model you need only tensorflow.
 
   * NumPy >= 1.11.1
-  * TensorFlow >= 1.1
+  * TensorFlow <= 0.12
   * Menpo >= 0.6.2
   * MoviePy >= 0.2.2.11
  
