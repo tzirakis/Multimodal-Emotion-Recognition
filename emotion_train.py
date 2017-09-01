@@ -8,6 +8,8 @@ import losses
 import models
 
 from tensorflow.python.platform import tf_logging as logging
+
+
 slim = tf.contrib.slim
 
 # Create FLAGS
