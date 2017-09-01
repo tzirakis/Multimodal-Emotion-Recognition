@@ -6,6 +6,7 @@ import tensorflow as tf
 from pathlib import Path
 from inception_processing import distort_color
 
+
 slim = tf.contrib.slim
 
 def get_split(dataset_dir, is_training=True, split_name='train', batch_size=32,
