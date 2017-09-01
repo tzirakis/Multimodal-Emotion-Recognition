@@ -19,6 +19,7 @@ def recurrent_model(net, hidden_units=256, number_of_outputs=2):
     Returns:
        The prediction of the network.
     """
+    
     batch_size, seq_length, num_features = net.get_shape().as_list()
 
     lstm = tf.nn.rnn_cell.LSTMCell(hidden_units,
