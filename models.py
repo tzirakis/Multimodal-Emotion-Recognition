@@ -73,7 +73,6 @@ def audio_model(video_frames=None, audio_frames=None, conv_filters=40):
     """
 
     with tf.variable_scope("audio_model"):
-
       batch_size, seq_length, num_features = audio_frames.get_shape().as_list()
       audio_input = tf.reshape(audio_frames, [batch_size * seq_length, 1, num_features, 1])
 
