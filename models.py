@@ -9,11 +9,20 @@ from tensorflow.contrib.slim.nets import resnet_v1
 slim = tf.contrib.slim
 
 def recurrent_model(net, hidden_units=256, number_of_outputs=2):
+    """Adds the LSTM network on top of the spatial audio model.
+    
+    Args:
+       net: A `Tensor` of dimensions [batch_size, seq_length, num_features].
+       hidden_units: The number of hidden units of the LSTM cell.
+       num_classes: The number of classes.
+    Returns:
+       The prediction of the network.
+    """
 
-#    with tf.variable_scope("recurrent"):
-      batch_size, seq_length, num_features = net.get_shape().as_list()
+    with tf.variable_scope("recurrent"):
+        batch_size, seq_length, num_features = net.get_shape().as_list()
 
-      lstm1 = tf.contrib.rnn.LSTMCell(hidden_units,
+        lstm1 = tf.contrib.rnn.LSTMCell(hidden_units,
                                    use_peepholes=True,
                                    cell_clip=100,
                                    state_is_tuple=True)
@@ -37,6 +46,14 @@ def recurrent_model(net, hidden_units=256, number_of_outputs=2):
 
 
 def video_model(video_frames=None, audio_frames=None):
+    """Creates the audio model.
+    
+    Args:
+        video_frames: A tensor that contains the video input.
+        audio_frames: not needed (leave None).
+    Returns:
+        The video model.
+    """
 
     with tf.variable_scope("video_model"):
         batch_size, seq_length, height, width, channels = video_frames.get_shape().as_list()
@@ -50,6 +67,15 @@ def video_model(video_frames=None, audio_frames=None):
     return features
 
 def audio_model(video_frames=None, audio_frames=None, conv_filters=40):
+    """Creates the audio model.
+    
+    Args:
+        video_frames: not needed (leave None).
+        audio_frames: A tensor that contains the audio input.
+        conv_filters: The number of convolutional filters to use.
+    Returns:
+        The audio model.
+    """
 
     with tf.variable_scope("audio_model"):
 
@@ -88,6 +114,14 @@ def audio_model(video_frames=None, audio_frames=None, conv_filters=40):
 
 
 def combined_model(video_frames, audio_frames):
+    """Creates the audio-visual model.
+    
+    Args:
+        video_frames: A tensor that contains the video input.
+        audio_frames: A tensor that contains the audio input.
+    Returns:
+        The audio-visual model.
+    """
 
     audio_features = audio_model([], audio_frames)
     visual_features = video_model(video_frames,[])
@@ -96,6 +130,13 @@ def combined_model(video_frames, audio_frames):
 
 
 def get_model(name):
+    """Returns the recurrent model.
+    
+    Args:
+        name: one of the 'audio', 'video', or 'both' 
+    Returns:
+        The recurrent model.
+    """
 
     name_to_fun = {'audio': audio_model, 'video': video_model, 'both': combined_model}
 
