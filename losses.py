@@ -4,8 +4,8 @@ from __future__ import print_function
 
 import tensorflow as tf
 
-slim = tf.contrib.slim
 
+slim = tf.contrib.slim
 
 def concordance_cc(predictions, labels):
 
