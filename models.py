@@ -19,32 +19,25 @@ def recurrent_model(net, hidden_units=256, number_of_outputs=2):
     Returns:
        The prediction of the network.
     """
+    batch_size, seq_length, num_features = net.get_shape().as_list()
 
-    with tf.variable_scope("recurrent"):
-        batch_size, seq_length, num_features = net.get_shape().as_list()
-
-        lstm1 = tf.contrib.rnn.LSTMCell(hidden_units,
+    lstm = tf.nn.rnn_cell.LSTMCell(hidden_units,
                                    use_peepholes=True,
                                    cell_clip=100,
                                    state_is_tuple=True)
 
-      lstm2 = tf.contrib.rnn.LSTMCell(hidden_units,
-                                   use_peepholes=True,
-                                   cell_clip=100,
-                                   state_is_tuple=True)
+    stacked_lstm = tf.nn.rnn_cell.MultiRNNCell([lstm] * 2, state_is_tuple=True)
 
-      stacked_lstm = tf.contrib.rnn.MultiRNNCell([lstm1, lstm2], state_is_tuple=True)
+    # We have to specify the dimensionality of the Tensor so we can allocate
+    # weights for the fully connected layers.
+    outputs, _ = tf.nn.dynamic_rnn(stacked_lstm, net, dtype=tf.float32)
 
-      # We have to specify the dimensionality of the Tensor so we can allocate
-      # weights for the fully connected layers.
-      outputs, states = tf.nn.dynamic_rnn(stacked_lstm, net, dtype=tf.float32)
+    net = tf.reshape(outputs, (batch_size * seq_length, hidden_units))
+    net = slim.dropout(net)
 
-      net = tf.reshape(outputs, (batch_size * seq_length, hidden_units))
-
-      prediction = slim.layers.linear(net, number_of_outputs)
-
-      return tf.reshape(prediction, (batch_size, seq_length, number_of_outputs))
-
+    prediction = slim.layers.linear(net, number_of_outputs)
+    
+    return tf.reshape(prediction, (batch_size, seq_length, number_of_outputs))
 
 def video_model(video_frames=None, audio_frames=None):
     """Creates the audio model.
