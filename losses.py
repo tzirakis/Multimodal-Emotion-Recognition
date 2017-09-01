@@ -7,18 +7,19 @@ import tensorflow as tf
 
 slim = tf.contrib.slim
 
-def concordance_cc(predictions, labels):
+def concordance_cc(prediction, ground_truth):
+   """Defines concordance loss for training the model. 
+   
+    Args:
+       prediction: prediction of the model.
+       ground_truth: ground truth values.
+    Returns:
+       The concordance value.
+    """
 
-    pred_mean, pred_var = tf.nn.moments(predictions, (0,))
-    gt_mean, gt_var = tf.nn.moments(labels, (0,))
+    pred_mean, pred_var = tf.nn.moments(prediction, (0,))
+    gt_mean, gt_var = tf.nn.moments(ground_truth, (0,))
 
-    mean_cent_prod = tf.reduce_mean((predictions - pred_mean) * (labels - gt_mean))
+    mean_cent_prod = tf.reduce_mean((prediction - pred_mean) * (ground_truth - gt_mean))
 
     return 1 - (2 * mean_cent_prod) / (pred_var + gt_var + tf.square(pred_mean - gt_mean))
-
-
-def concordance_cc2(r1, r2):
-
-    mean_cent_prod = ((r1 - r1.mean()) * (r2 - r2.mean())).mean()
-
-    return (2 * mean_cent_prod) / (r1.var() + r2.var() + (r1.mean() - r2.mean()) ** 2)
