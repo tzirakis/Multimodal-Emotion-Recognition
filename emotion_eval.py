@@ -20,13 +20,13 @@ FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_integer('batch_size', 2, '''The batch size to use.''')
 tf.app.flags.DEFINE_string('model', 'both','''Which model is going to be used: audio, video, or both ''')
 tf.app.flags.DEFINE_string('dataset_dir', '/vol/atlas/homes/pt511/db/RECOLA/tf_records/', 'The tfrecords directory.')
-tf.app.flags.DEFINE_string('checkpoint_dir', 'ckpt/del', 'The tfrecords directory.')
-tf.app.flags.DEFINE_string('log_dir', 'ckpt/log', 'The tfrecords directory.')
-tf.app.flags.DEFINE_integer('num_examples', 600, 'The number of examples in the test set')
-tf.app.flags.DEFINE_integer('hidden_units', 256, 'The number of examples in the test set')
-tf.app.flags.DEFINE_integer('seq_length', 2, 'The number of examples in the test set')
+tf.app.flags.DEFINE_string('checkpoint_dir', 'ckpt/del', 'The directory that contains the saved model.')
+tf.app.flags.DEFINE_string('log_dir', 'ckpt/log', 'The directory to save log files.')
+tf.app.flags.DEFINE_integer('num_examples', 600, 'The number of examples in the data set')
+tf.app.flags.DEFINE_integer('hidden_units', 256, 'The number of hidden units in the recurrent model')
+tf.app.flags.DEFINE_integer('seq_length', 2, 'The number of consecutive examples to be used in the recurrent model')
 tf.app.flags.DEFINE_string('eval_interval_secs', 300, 'The number of examples in the test set')
-tf.app.flags.DEFINE_string('portion', 'valid', 'The number of examples in the test set')
+tf.app.flags.DEFINE_string('portion', 'valid', 'The portion (train, valid, test) to use for evaluation')
 
 def evaluate(data_folder):
   """Evaluates the model (audio/video/both).
