@@ -18,16 +18,16 @@ slim = tf.contrib.slim
 
 # Create FLAGS
 FLAGS = tf.app.flags.FLAGS
-tf.app.flags.DEFINE_integer('batch_size', 2, 'The batch size to use.')
+tf.app.flags.DEFINE_integer('batch_size', 1, 'The batch size to use.')
 tf.app.flags.DEFINE_string('model', 'both','Which model is going to be used: audio, video, or both ')
 tf.app.flags.DEFINE_string('dataset_dir', 'path_to_tfrecords', 'The tfrecords directory.')
 tf.app.flags.DEFINE_string('checkpoint_dir', 'ckpt/del', 'The directory that contains the saved model.')
 tf.app.flags.DEFINE_string('log_dir', 'ckpt/log', 'The directory to save log files.')
-tf.app.flags.DEFINE_integer('num_examples', 600, 'The number of examples in the data set')
+tf.app.flags.DEFINE_integer('num_examples', 1000, 'The number of examples in the data set')
 tf.app.flags.DEFINE_integer('hidden_units', 256, 'The number of hidden units in the recurrent model')
-tf.app.flags.DEFINE_integer('seq_length', 2, 
+tf.app.flags.DEFINE_integer('seq_length', 150, 
                             'The number of consecutive examples to be used in the recurrent model')
-tf.app.flags.DEFINE_string('eval_interval_secs', 300, 'The number of examples in the test set')
+tf.app.flags.DEFINE_string('eval_interval_secs', 300, 'How often to run the evaluation (in sec).')
 tf.app.flags.DEFINE_string('portion', 'valid', 'The portion (train, valid, test) to use for evaluation')
 
 def evaluate(data_folder):
@@ -94,12 +94,9 @@ def evaluate(data_folder):
     op = tf.Print(op, [mse_total], 'eval/mse_total')
     summary_ops.append(op)
 
-    num_examples = FLAGS.num_examples
-    num_batches = int(num_examples / (FLAGS.batch_size * FLAGS.seq_length))
+    num_batches = int(FLAGS.num_examples / (FLAGS.batch_size * FLAGS.seq_length))
     logging.set_verbosity(1)
 
-    # Setup the global step.
-    eval_interval_secs = FLAGS.eval_interval_secs # How often to run the evaluation.
     slim.evaluation.evaluation_loop(
         '',
         FLAGS.checkpoint_dir,
@@ -107,7 +104,7 @@ def evaluate(data_folder):
         num_evals=num_batches,
         eval_op=list(names_to_updates.values()),
         summary_op=tf.summary.merge(summary_ops),
-        eval_interval_secs=eval_interval_secs)
+        eval_interval_secs=FLAGS.eval_interval_secs)
 
 def main(_):
     evaluate(FLAGS.dataset_dir)
