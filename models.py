@@ -10,7 +10,8 @@ from tensorflow.contrib.slim.nets import resnet_v1
 slim = tf.contrib.slim
 
 def recurrent_model(net, hidden_units=256, number_of_outputs=2):
-    """Adds the LSTM network on top of the spatial audio model.
+    """Adds the recurrent network on top of the spatial 
+       audio / video / audio-visual model.
     
     Args:
        net: A `Tensor` of dimensions [batch_size, seq_length, num_features].
