@@ -41,7 +41,7 @@ def recurrent_model(net, hidden_units=256, number_of_outputs=2):
     return tf.reshape(prediction, (batch_size, seq_length, number_of_outputs))
 
 def video_model(video_frames=None, audio_frames=None):
-    """Creates the audio model.
+    """Creates the video model.
     
     Args:
         video_frames: A tensor that contains the video input.
