@@ -121,7 +121,7 @@ def combined_model(video_frames, audio_frames):
     audio_features = audio_model([], audio_frames)
     visual_features = video_model(video_frames,[])
 
-    return tf.concat((audio_features, visual_features), 2, name='concat')
+    return tf.concat(2, (audio_features, visual_features), name='concat')
 
 
 def get_model(name):
