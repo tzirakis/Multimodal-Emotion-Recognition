@@ -5,7 +5,7 @@ This package provides training and evaluation code for the end-to-end multimodal
 `Tzirakis, P., Trigeorgis, G., Nicolaou, M. A., Schuller, B., & Zafeiriou, S. (2017). End-to-End Multimodal Emotion Recognition using Deep Neural Networks. arXiv preprint arXiv:1704.08619.` (https://arxiv.org/pdf/1704.08619.pdf)
 
 ## Requirements
-If you need to run the model you need the requirements below.
+Below are listed the required modules to run the code.
 
   * Python <= 2.7
   * NumPy >= 1.11.1
