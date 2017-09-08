@@ -59,7 +59,7 @@ def train(data_folder):
             mse = tf.reduce_mean(tf.square(pred_single - gt_single))
             tf.summary.scalar('losses/mse {} loss'.format(name), mse)
 
-            tf.losses.add_loss(loss / 2.)
+            slim.losses.add_loss(loss / 2.)
 
         total_loss = tf.losses.get_total_loss()
         tf.summary.scalar('losses/total loss', total_loss)
