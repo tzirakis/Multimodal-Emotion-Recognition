@@ -8,8 +8,8 @@ import tensorflow as tf
 slim = tf.contrib.slim
 
 def concordance_cc(prediction, ground_truth):
-   """Defines concordance loss for training the model. 
-   
+    """Defines concordance loss for training the model. 
+    
     Args:
        prediction: prediction of the model.
        ground_truth: ground truth values.
