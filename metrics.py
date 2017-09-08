@@ -4,7 +4,7 @@ import tensorflow as tf
 slim = tf.contrib.slim
 
 def concordance_cc2(prediction, ground_truth):
-   """Defines concordance metric for model evaluation. 
+    """Defines concordance metric for model evaluation. 
 
     Args:
        prediction: prediction of the model.
