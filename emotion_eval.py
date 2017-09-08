@@ -21,7 +21,7 @@ FLAGS = tf.app.flags.FLAGS
 tf.app.flags.DEFINE_integer('batch_size', 1, 'The batch size to use.')
 tf.app.flags.DEFINE_string('model', 'both','Which model is going to be used: audio, video, or both ')
 tf.app.flags.DEFINE_string('dataset_dir', 'path_to_tfrecords', 'The tfrecords directory.')
-tf.app.flags.DEFINE_string('checkpoint_dir', 'ckpt/del', 'The directory that contains the saved model.')
+tf.app.flags.DEFINE_string('checkpoint_dir', 'ckpt/train', 'The directory that contains the saved model.')
 tf.app.flags.DEFINE_string('log_dir', 'ckpt/log', 'The directory to save log files.')
 tf.app.flags.DEFINE_integer('num_examples', 1000, 'The number of examples in the data set')
 tf.app.flags.DEFINE_integer('hidden_units', 256, 'The number of hidden units in the recurrent model')
