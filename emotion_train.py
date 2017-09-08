@@ -61,7 +61,7 @@ def train(data_folder):
 
             slim.losses.add_loss(loss / 2.)
 
-        total_loss = tf.losses.get_total_loss()
+        total_loss = slim.losses.get_total_loss()
         tf.summary.scalar('losses/total loss', total_loss)
 
         optimizer = tf.train.AdamOptimizer(FLAGS.initial_learning_rate)
