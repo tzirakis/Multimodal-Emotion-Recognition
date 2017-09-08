@@ -5,8 +5,9 @@ This package provides training and evaluation code for the end-to-end multimodal
 `Tzirakis, P., Trigeorgis, G., Nicolaou, M. A., Schuller, B., & Zafeiriou, S. (2017). End-to-End Multimodal Emotion Recognition using Deep Neural Networks. arXiv preprint arXiv:1704.08619.` (https://arxiv.org/pdf/1704.08619.pdf)
 
 ## Requirements
-The below requirements are needed to generate the tfrecords in the `data_generator.py` file. If you need to run the model you need only tensorflow.
+If you need to run the model you need the requirements below.
 
+  * Python <= 2.7
   * NumPy >= 1.11.1
   * TensorFlow <= 0.12
   * Menpo >= 0.6.2
@@ -21,5 +22,6 @@ This repository contains the files:
   * data_generator.py: creates the tfrecords from '.wav' files
   * metrics.py: contains the concordance metric used for evaluation.
   * losses.py: contains the loss function of the training.
-  * inception_processing.py: provides methods to regularize images. 
+  * inception_processing.py: provides functions for visual regularization. 
   
+The multimodal model can be downloaded from here : https://www.doc.ic.ac.uk/~pt511/emotion_recognition_model.zip
