@@ -24,4 +24,4 @@ This repository contains the files:
   * losses.py: contains the loss function of the training.
   * inception_processing.py: provides functions for visual regularization. 
   
-The multimodal model will be available soon to download.
+The multimodal model can be downloaded from here : https://www.doc.ic.ac.uk/~pt511/emotion_recognition_model.zip 
