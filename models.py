@@ -35,7 +35,6 @@ def recurrent_model(net, hidden_units=256, number_of_outputs=2):
     outputs, _ = tf.nn.dynamic_rnn(stacked_lstm, net, dtype=tf.float32)
 
     net = tf.reshape(outputs, (batch_size * seq_length, hidden_units))
-    net = slim.dropout(net)
 
     prediction = slim.layers.linear(net, number_of_outputs)
     
