@@ -70,7 +70,7 @@ def train(data_folder):
         with tf.Session(graph=g) as sess:
             if FLAGS.pretrained_model_checkpoint_path:
 		# Need to specify which variables to restore (use scope of models)
-                variables_to_restore = slim.get_model_variables()
+                variables_to_restore = slim.get_variables()
                 init_fn = slim.assign_from_checkpoint_fn(
                         FLAGS.pretrained_model_checkpoint_path, variables_to_restore)
 
