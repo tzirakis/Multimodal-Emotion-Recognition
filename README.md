@@ -2,7 +2,8 @@
 
 This package provides training and evaluation code for the end-to-end multimodal emotion recognition paper. If you use this codebase in your experiments please cite:
 
-`Tzirakis, P., Trigeorgis, G., Nicolaou, M. A., Schuller, B., & Zafeiriou, S. (2017). End-to-End Multimodal Emotion Recognition using Deep Neural Networks. arXiv preprint arXiv:1704.08619.` (https://arxiv.org/pdf/1704.08619.pdf)
+`P. Tzirakis, G. Trigeorgis, M. A. Nicolaou, B. Schuller and S. Zafeiriou, "End-to-End Multimodal Emotion Recognition using Deep Neural Networks," in IEEE Journal of Selected Topics in Signal Processing, vol. PP, no. 99, pp. 1-1.` (http://ieeexplore.ieee.org/document/8070966/)
+
 
 ## Requirements
 Below are listed the required modules to run the code.
