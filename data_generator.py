@@ -12,10 +12,11 @@ from moviepy.audio.AudioClip import AudioArrayClip
 
 root_dir = Path('path_of_RECOLA')
 
+# Inser the numbers for each video for the RECOLA Dataset
 portion_to_id = dict(
-    train = [25, 15, 16 ,17 ,18 ,21 ,23 ,37 ,39 ,41 ,46 ,50 ,51 ,55 ,56, 60], # 25
-    valid = [14, 19, 24, 26, 28, 30, 34 ,40, 42, 43, 44, 45, 52, 64, 65],
-    test  = [54, 53, 13, 20, 22, 32, 38, 47, 48, 49, 57, 58, 59, 62, 63] # 54, 53
+    train = [], 
+    valid = [],
+    test  = [] 
 )
 
 def get_samples(subject_id):
