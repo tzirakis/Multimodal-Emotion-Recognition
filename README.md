@@ -4,6 +4,8 @@ This package provides training and evaluation code for the end-to-end multimodal
 
 `P. Tzirakis, G. Trigeorgis, M. A. Nicolaou, B. Schuller and S. Zafeiriou, "End-to-End Multimodal Emotion Recognition using Deep Neural Networks," in IEEE Journal of Selected Topics in Signal Processing, vol. PP, no. 99, pp. 1-1.` (http://ieeexplore.ieee.org/document/8070966/)
 
+## UPDATE
+### Implementation of this method in PyTorch (along with pretrain models) can be found in our [End2You toolkit](https://github.com/end2you/end2you)
 
 ## Requirements
 Below are listed the required modules to run the code.
